@@ -21,12 +21,12 @@ export default function Header() {
   const handleSectionNavigation = (sectionId) => {
     setMenuOpen(false);
 
-    if (location.pathname === "/") {
+    if (location.pathname === "/" || location.pathname === "/home") {
       scrollToSection(sectionId);
       return;
     }
 
-    navigate("/", {
+    navigate("/home", {
       state: {
         scrollTo: sectionId,
       },
@@ -81,21 +81,13 @@ export default function Header() {
           >
             {NAV_LINKS.map((item) => (
               <li key={item.href}>
-                {item.href.startsWith('/#') ? (
-                  <button
-                    className="nav-link-btn"
-                    onClick={() => handleNavClick(item)}
-                  >
-                    {item.label}
-                  </button>
-                ) : (
-                  <button
-                    className="nav-link-btn"
-                    onClick={() => handleNavClick(item)}
-                  >
-                    {item.label}
-                  </button>
-                )}
+                <button
+                  type="button"
+                  className="nav-link-btn"
+                  onClick={() => handleNavClick(item)}
+                >
+                  {item.label}
+                </button>
               </li>
             ))}
           </ul>
@@ -117,6 +109,10 @@ export default function Header() {
               +91 97425 43939
             </a>
           </div>
+
+          <Link to="/admin/login" className="admin-link-btn">
+            Admin Login
+          </Link>
 
           <button
             className="btn btn-primary"

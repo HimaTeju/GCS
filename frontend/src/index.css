@@ -59,6 +59,19 @@ h1,h2,h3,h4{
   letter-spacing:-0.01em;
 }
 
+.hero-art {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 500px; /* Adjust as needed */
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
 .eyebrow{
   font-family:var(--mono);
   font-size:12px;
@@ -143,6 +156,37 @@ header{
 
 .nav-toggle{display:none; background:none; border:none; cursor:pointer; padding:6px;}
 .nav-toggle span{display:block; width:22px; height:2px; background:var(--ink); margin:4px 0;}
+.admin-link-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:38px;
+  height:38px;
+  border:1px solid var(--line);
+  border-radius:2px;
+  color:var(--teal);
+  flex-shrink:0;
+}
+.admin-link-btn{
+  display:flex;
+  align-items:center;
+  font-family:var(--mono);
+  font-size:12.5px;
+  font-weight:600;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  color:var(--teal);
+  padding:9px 14px;
+  border:1px solid var(--line);
+  border-radius:2px;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.admin-link-btn:hover{
+  border-color:var(--ink);
+  color:var(--ink);
+  background:var(--paper-dim);
+}
 
 /* ---------- HERO ---------- */
 .hero{
@@ -268,6 +312,80 @@ section.alt{background:var(--paper-dim); border-top:1px solid var(--line); borde
 .values-list strong{color:var(--ink); display:block; font-size:15px; margin-bottom:2px;}
 .values-list span{font-size:14px; color:var(--slate);}
 
+
+  /* ---------- GOVERNMENT RECOGNITION ---------- */
+
+.recognition-panel{
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:40px;
+    margin:42px 0 56px;
+    border-radius:var(--radius);
+}
+
+.recognition-panel h3{
+    margin:0 0 14px;
+    font-size:28px;
+}
+
+.recognition-panel p{
+    max-width:70ch;
+    color:var(--slate);
+    margin-bottom:30px;
+}
+
+.recognition-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+}
+
+.recognition-card{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:24px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    transition:.25s ease;
+}
+
+.recognition-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 16px 35px rgba(16,35,61,.08);
+}
+
+.recognition-card img{
+    width:72px;
+    height:72px;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.recognition-card h4{
+    margin:0 0 8px;
+    color:var(--ink);
+    font-size:18px;
+}
+
+.recognition-card span{
+    color:var(--slate);
+    font-size:14px;
+    line-height:1.6;
+}
+
+@media(max-width:900px){
+
+.recognition-grid{
+    grid-template-columns:1fr;
+}
+
+.recognition-panel{
+    padding:28px;
+}
+
+}
 /* ---------- COURSES ---------- */
 .course-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:26px;}
 .course-card{
@@ -292,6 +410,173 @@ section.alt{background:var(--paper-dim); border-top:1px solid var(--line); borde
 .view{font-size:13.5px; font-weight:600; color:var(--ink); border-bottom:1.5px solid var(--amber); padding-bottom:2px; text-decoration:none; display:inline-block;}
 .view:hover{color:var(--teal); border-color:var(--teal);}.course-actions .brochure{font-size:12.5px; color:var(--teal); font-family:var(--mono);}
 
+/* ==========================================================
+   🔒 COMING SOON LOCK - START (CSS)
+   Delete this whole block when removing the feature.
+========================================================== */
+.course-detail-page {
+  position: relative;
+}
+
+/* The blurred/faded page content sits underneath a gradient-masked
+   blur layer. The mask is transparent for the first 20% (fully sharp)
+   and ramps to fully opaque blur by ~40%. Tweak the % stops to change
+   how much stays visible. */
+/* ==========================================================
+   🔒 COMING SOON LOCK - START (CSS)
+   Delete this whole block when removing the feature.
+========================================================== */
+.course-detail-page {
+  position: relative;
+}
+
+/* When locked, clip the page at roughly the visible (unblurred) point
+   and prevent scrolling past it. Adjust max-height to match wherever
+   your fade/blur actually starts (in px or vh, whichever suits your layout). */
+.course-detail-page.is-locked {
+  max-height: 100vh;   /* ← tweak this: how much of the page stays reachable */
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.coming-soon-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 20%,
+    black 20%,
+    black 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 20%,
+    black 20%,
+    black 100%
+  );
+}
+
+.coming-soon-badge-wrap {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  pointer-events: none;
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+/* 🔒 COMING SOON LOCK - END (CSS) */
+
+.coming-soon-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* Hard cutoff: fully sharp for the first 20%, then blur kicks in
+     immediately — no gradual ramp. Move the 20% value to change
+     where the blur starts. */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 20%,
+    black 20%,
+    black 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 20%,
+    black 20%,
+    black 100%
+  );
+}
+
+.coming-soon-badge-wrap {
+  position: absolute;
+  top: 22%; /* sits just past the visible 20% mark */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  pointer-events: none;
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+/* 🔒 COMING SOON LOCK - END (CSS) */
+
+/* ==========================================================
+   🔒 COMING SOON LOCK - START (fee card CSS)
+   Delete this block when removing the feature.
+========================================================== */
+.fee-card-wrapper {
+  position: relative;
+}
+
+.fee-card-wrapper.is-locked .fee-card {
+  filter: blur(6px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.fee-card-badge {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.fee-card-badge span {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+/* 🔒 COMING SOON LOCK - END (fee card CSS) */
 /* ---------- SERVICES ---------- */
 .service-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
 .service-card{background:var(--card); padding:34px 30px;}
@@ -306,12 +591,16 @@ section.alt{background:var(--paper-dim); border-top:1px solid var(--line); borde
   display:grid; grid-template-columns:0.8fr 1.2fr; gap:0;
   border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
 }
-.testimonial-photo{position:relative; min-height:100%;}
-.testimonial-photo img{height:100%; object-fit:cover; filter:grayscale(25%);}
-.testimonial-photo::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 50%, rgba(16,35,61,0.55));}
-.testimonial-photo .label{
-  position:absolute; left:22px; bottom:20px; color:#fff;
-  font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+.testimonial-band {
+  display: flex;
+  justify-content: center;
+}
+
+.testimonial-cards.full-width {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 .testimonial-cards{background:var(--card); padding:8px;}
 .testimonial-card{padding:28px 30px; border-bottom:1px solid var(--line-soft);}
@@ -345,6 +634,60 @@ section.alt{background:var(--paper-dim); border-top:1px solid var(--line); borde
 .contact-form .btn{width:100%; justify-content:center; margin-top:6px;}
 .contact-map{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-top:24px;}
 .contact-map iframe{width:100%; height:280px; border:0; display:block; filter:grayscale(35%) contrast(1.05);}
+
+/* ---------- CONTACT SUCCESS MESSAGE ---------- */
+
+.success-message{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-left:5px solid var(--amber);
+  padding:18px 20px;
+  margin-bottom:22px;
+  border-radius:var(--radius);
+  animation:successFade .35s ease;
+}
+
+.success-icon{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:var(--amber);
+  color:var(--ink);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  font-weight:700;
+  flex-shrink:0;
+}
+
+.success-content h4{
+  margin:0 0 6px;
+  color:var(--ink);
+  font-size:18px;
+  font-family:var(--serif);
+}
+
+.success-content p{
+  margin:0;
+  color:var(--slate);
+  font-size:14px;
+  line-height:1.6;
+}
+
+@keyframes successFade{
+  from{
+    opacity:0;
+    transform:translateY(-10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
 
 /* ---------- FOOTER ---------- */
 footer{background:var(--ink); color:#C9CFDB; padding:64px 0 28px;}
