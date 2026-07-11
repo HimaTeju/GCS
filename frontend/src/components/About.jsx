@@ -1,4 +1,6 @@
 import aboutTeamPhoto from '../assets/about-team.jpg'
+import msmeImg from "../assets/msme.jpg";
+import mcaImg from "../assets/mca.webp";
 
 const VALUES = [
   {
@@ -57,19 +59,19 @@ export default function About() {
             <h3>What we do</h3>
             <ul>
               <li>
-                <strong>Smart School &amp; College ERPs</strong> — attendance, exams, fees, automated
+                <strong>Smart School &amp; College ERPs</strong> — Attendance, exams, fees, automated
               </li>
               <li>
-                <strong>Exam &amp; IQ Platforms</strong> — gamified testing with live analytics
+                <strong>Exam &amp; IQ Platforms</strong> — Gamified testing with live analytics
               </li>
               <li>
-                <strong>Internships &amp; Projects</strong> — certified, industry-mapped programs
+                <strong>Internships &amp; Projects</strong> — Certified, industry-mapped programs
               </li>
               <li>
-                <strong>Teacher Training</strong> — modern pedagogy and ed-tech fluency
+                <strong>Teacher Training</strong> — Modern pedagogy and ed-tech fluency
               </li>
               <li>
-                <strong>Custom Software</strong> — tailor-made academic tools, built to fit
+                <strong>Custom Software</strong> — Tailor-made academic tools, built to fit
               </li>
             </ul>
           </div>
@@ -89,7 +91,7 @@ export default function About() {
   <div className="recognition-grid">
     <div className="recognition-card">
       <img
-        src="./frontend/src/assets/msme.jpg"
+        src={msmeImg}
         alt="MSME Registered"
       />
 
@@ -105,7 +107,7 @@ export default function About() {
 
     <div className="recognition-card">
       <img
-        src="./frontend/src/assets/mca.webp"
+        src={mcaImg}
         alt="Ministry of Corporate Affairs"
       />
 
