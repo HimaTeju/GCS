@@ -8,9 +8,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "npm run build && wrangler dev",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "firebase": "^12.15.0",
@@ -19,6 +19,7 @@
     "react-router-dom": "^7.18.1"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.44.0",
     "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.3.2",
     "@types/react": "^19.2.17",
@@ -30,6 +31,7 @@
     "gh-pages": "^6.3.0",
     "globals": "^17.7.0",
     "tailwindcss": "^4.3.2",
-    "vite": "^8.1.1"
+    "vite": "^8.1.1",
+    "wrangler": "^4.110.0"
   }
 }
